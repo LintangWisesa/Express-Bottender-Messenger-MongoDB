@@ -24,6 +24,7 @@ module.exports = {
     count: 0,
     nama: '',
     bday: '',
+    know: '',
     chat: ''
   },
   channels: {
