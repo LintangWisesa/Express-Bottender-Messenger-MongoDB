@@ -1,4 +1,5 @@
-const { router, text, payload } = require('bottender/router');
+const { chain } = require('bottender');
+const { router, text, route, payload } = require('bottender/router');
 const mongc = require('mongodb').MongoClient
 const { url } = require('./../mongo.config')
 
@@ -52,16 +53,51 @@ async function Unknown(context) {
   await context.sendText('Sorry, I don\'t understand');
 }
 
+// #################### App: name & birthday ####################
+
+async function hitung(context) {
+  switch(context.state.count){
+    case 0:
+      var count = context.state.count + 1
+      context.setState({
+        count
+      });
+      await context.sendText(`Case: ${count}`);
+      break
+    case 1:
+      var count = context.state.count + 1
+      context.setState({
+        count
+      });
+      await context.sendText(`Case: ${count}`);
+      break
+    case 2:
+      var count = 0
+      context.setState({
+        count
+      });
+      await context.sendText(`Case: ${count}`);
+      break
+  }
+  
+  // var count = 0
+  // context.setState({
+  //   count
+  // });
+  // await context.sendText(`Hitung: ${count}`);
+}
+
 // #################### Main App ####################
 
 module.exports = async function App() {
+
   return router([
-    
     // return the `Hello` action when receiving "hello"/"hi" (case-insensitive) text messages
     text(/^(hello|hi)$/i, Hello),
-    
+    // hitung
+    text('a', hitung),    
     // unhandled route
     text('*', Unknown),
-
   ]);
+
 }

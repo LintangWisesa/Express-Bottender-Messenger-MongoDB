@@ -21,6 +21,9 @@ module.exports = {
     },
   },
   initialState: {
+    count: 0,
+    nama: '',
+    bday: '',
     chat: ''
   },
   channels: {
