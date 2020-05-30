@@ -1,10 +1,6 @@
 const { router, text, payload } = require('bottender/router');
-var mongc = require('mongodb').MongoClient
-
-// mongodb user, password & url
-var user = 'lintang'
-var pass = '1234'
-var url = `mongodb://${user}:${pass}@localhost:27017/bottender`
+const mongc = require('mongodb').MongoClient
+const { url } = require('./../mongo.config')
 
 // #################### Action Hello ####################
 

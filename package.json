@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "bottender dev",
-    "lint": "eslint . ",
     "start": "bottender start",
+    "lint": "eslint . ",
     "test": "jest"
   },
   "dependencies": {
