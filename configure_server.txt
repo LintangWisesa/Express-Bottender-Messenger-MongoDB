@@ -1,0 +1,17 @@
+On package.json:
+
+- If using Express.js:
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+
+- If using Bottender:
+    "dev": "bottender dev",
+    "start": "bottender start",
+
+Run it:
+    on console: $ npm run dev -- --console
+    on server:  $ npm run dev
+
+Public domain & connect to webhook:
+    $ ngrok.exe http 5000
+    $ npx bottender messenger webhook set -w <URL_FROM_NGROK>/webhooks/messenger

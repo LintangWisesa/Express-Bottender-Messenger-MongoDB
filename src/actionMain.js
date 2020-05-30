@@ -76,7 +76,20 @@ module.exports = {
 
             if (bday.isValid()){
               // response chat
-              await context.sendText(`Your birthday is at ${bday.format('LL')}. Do you want to know how many days till your next birthday? (Y/N)`);
+              await context.sendText(`Your birthday is at ${bday.format('LL')}. Do you want to know how many days till your next birthday?`, {
+                quickReplies: [
+                  {
+                    contentType: 'text',
+                    title: '✅ Yes',
+                    payload: 'BIRTHDAY_YES',
+                  },
+                  {
+                    contentType: 'text',
+                    title: '⛔ No',
+                    payload: 'BIRTHDAY_NO',
+                  },
+                ],
+              });
               break
             } else {
               // response chat
@@ -90,7 +103,12 @@ module.exports = {
 
           case 3:
             // state
-            var know = context.event.text
+            var know
+            if (context.event.isPayload){
+              know = context.event.payload.split('_')[1]
+            } else {
+              know = context.event.text
+            }
             var bday = moment(context.state.bday).format('YYYY-MM-DD')
             var now = moment().format('YYYY-MM-DD')
             var count = 0
@@ -123,10 +141,10 @@ module.exports = {
             }
             // response chat
             if (know.toUpperCase().startsWith('Y')){
-              await context.sendText(`It's ${dayleft} days left till your next birthday at ${moment(bdayNow).format('LL')}`);
+              await context.sendText(`It's ${dayleft} day(s) left till your next birthday at ${moment(bdayNow).format('LL')}`);
               break
             } else {
-              await context.sendText(`Good bye~`);
+              await context.sendText(`Ok then. Good bye ~`);
               break
             }
         }

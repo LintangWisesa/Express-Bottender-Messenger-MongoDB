@@ -39,7 +39,7 @@ app.prepare().then(() => {
   server.get('/messages/:id', (req, res) => {
     mongo.MongoClient.connect(url, (error, client)=>{
         var koleksi = client.db('bottender').collection('chats')
-        koleksi.findOne({'_id': new mongo.ObjectID(req.params.id)}).toArray((error, data)=>{
+        koleksi.find({'_id': new mongo.ObjectID(req.params.id)}).toArray((error, data)=>{
             res.send(data[0])
             client.close()
         })
@@ -52,7 +52,10 @@ app.prepare().then(() => {
     mongo.MongoClient.connect(url, (error, client)=>{
         var koleksi = client.db('bottender').collection('chats')
         koleksi.deleteOne({'_id': new mongo.ObjectID(req.params.id)}, () => {
-            res.send('Data terhapus')
+            res.send({
+              data_id: req.params.id,
+              status: 'Deleted'             
+            })
             client.close()
         })
     })

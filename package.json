@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "bottender dev",
-    "start": "bottender start",
+    "dev": "nodemon server.js",
+    "start": "node server.js",
     "lint": "eslint . ",
     "test": "jest"
   },
