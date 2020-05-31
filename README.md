@@ -3,7 +3,7 @@
 ## __Express.js, Bottender.js, Facebook Messenger & MongoDB__
 
 - Project started: __Saturday 30/05/2020__ at __8.30 AM (GMT+7)__.
-- Project finished: __Sunday 31/05/2020__ at __8.30 AM (GMT+7)__.
+- Project finished: __Sunday 31/05/2020__ at __8.02 AM (GMT+7)__.
 - Created using _Express.js, ngrok, Bottender.js, Moment.js, MongoDB & Messenger Webhook_.
 
 
@@ -64,6 +64,8 @@
     > db.createCollection('chats')
     ```
     
+<hr>
+
 2. __Clone & Set Up Project__
 
     Simply clone this project from github then install all dependencies needed:
@@ -73,6 +75,8 @@
     $ cd Express-Bottender-Messenger-MongoDB
     $ npm i
     ```
+
+<hr>
 
 3. __Set Up ```mongo.config.js```__
 
@@ -84,6 +88,8 @@
     }
     ```
     Save it.
+
+<hr>
 
 4. __Connect to Facebook Messenger__
 
@@ -108,6 +114,8 @@
     ```
     
     Save it.
+
+<hr>
 
 5. __Run the project__
 
@@ -147,6 +155,8 @@
 
         Now your bot application is run on ```http://localhost:5000```, including its REST API. Try to __GET ```/messages```__ to show all received messages.
 
+<hr>
+
 6. __Make Public Server__
 
     Run your project on Express server, then make it public. You can deploy the project on cloud (for instance: __Heroku__, __AWS__ or __Google Cloud__) or in this case I simply use __ngrok__ to create public URL for my project. Download [__ngrok__ here](https://ngrok.com/) then execute from terminal:
@@ -159,6 +169,7 @@
 
     <img src="./img/f.png"> 
 
+<hr>
 
 7. __Set Webhook & Going Live!__
 
@@ -170,7 +181,7 @@
 
     It will set Messenger webhook, connect your project to Facebook application & your bot will live on your Facebook Page. Try to send a message!
 
-    😎 __Enjoy ~__
+    Enjoy ~ 😎
 
 <hr>
 
